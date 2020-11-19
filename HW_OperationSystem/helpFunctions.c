@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include "helpFunctions.h"
 
-int createRandomNumber(int max, int min){
-  int num = min+(rand()%(max-min+1));
+int createRandomNumber(int max){
+  int num = rand()%max;
   return num;
 }
 void initMat(int* mat, int rows, int cols){
   for(int i =0 ; i<rows*cols ; i++){
-    *mat=createRandomNumber(rows*cols,0);
+    *mat=createRandomNumber(50);
     mat++;
   }
 }
@@ -40,7 +40,8 @@ int menu(){
   scanf("%d", &menu);
   return menu;
 }
-void rotateMatrix(int* mat, int indexRow, int indexCol,int sizeOfRow){
+void rotateMatrixRight(int* mat, int indexRow, int indexCol,int sizeOfRow)
+{
   int temp1;
   int temp2;
   for(int i=0 ; i<4 ; i++){
@@ -64,4 +65,42 @@ void rotateMatrix(int* mat, int indexRow, int indexCol,int sizeOfRow){
   }
 
 
+}
+void rotateMatrixLeft(int* mat, int indexRow, int indexCol,int sizeOfRow)
+{
+  int temp1;
+  int temp2;
+  for(int i=0 ; i<4 ; i++){
+    switch(i){
+      case 0:
+      temp1 = *(mat+(sizeOfRow-1-indexCol)*sizeOfRow+(indexRow));
+      *(mat+(sizeOfRow-1-indexCol)*sizeOfRow+(indexRow)) = *(mat+indexRow*sizeOfRow+indexCol);
+      break;
+      case 1: 
+      temp2 = *(mat+(sizeOfRow-1-indexRow)*sizeOfRow+(sizeOfRow-1-indexCol));
+      *(mat+(sizeOfRow-1-indexRow)*sizeOfRow+(sizeOfRow-1-indexCol)) = temp1;
+      break;
+      case 2:
+      temp1 = *(mat+indexCol*sizeOfRow+(sizeOfRow-1-indexRow));
+      *(mat+indexCol*sizeOfRow+(sizeOfRow-1-indexRow)) = temp2;
+      break;
+      case 3:
+      *(mat+(indexRow)*sizeOfRow+indexCol) = temp1;
+      break;
+    }
+  }
+}
+void flipHorizontal(int* mat, int indexRow, int indexCol,int sizeOfRow)
+{
+  int temp1;
+  temp1 = *(mat +(sizeOfRow -1 - indexRow)*sizeOfRow +indexCol);
+  *(mat +(sizeOfRow -1 - indexRow)*sizeOfRow +indexCol) = *(mat +(indexRow)*sizeOfRow +indexCol);
+  *(mat +(indexRow)*sizeOfRow +indexCol) = temp1;
+}
+void flipVertical(int* mat, int indexRow, int indexCol,int sizeOfRow)
+{
+  int temp1;
+  temp1 = *(mat +(indexRow)*sizeOfRow +(sizeOfRow -1 -indexCol));
+  *(mat +(indexRow)*sizeOfRow +(sizeOfRow -1 -indexCol)) = *(mat +(indexRow)*sizeOfRow + indexCol);
+  *(mat +(indexRow)*sizeOfRow + indexCol) = temp1;
 }

@@ -14,10 +14,35 @@ void Q1(){
    case 1:
    for(int i=0; i<ROWS/2; i++){
      for(int j=0 ; j<(COLS/2+COLS%2) ; j++){
-       rotateMatrix((int*)mat,i,j,ROWS);
+       rotateMatrixRight((int*)mat,i,j,ROWS);
      }
    }
    printMat((int*)mat,ROWS,COLS);
     break;
+    case 2:
+    for(int i=0; i<ROWS/2; i++){
+     for(int j=0 ; j<(COLS/2+COLS%2) ; j++){
+       rotateMatrixLeft((int*)mat,i,j,ROWS);
+     }
+   }
+   printMat((int*)mat,ROWS,COLS);
+    break;
+     case 3:
+     for(int i=0; i<ROWS/2; i++){
+      for(int j=0 ; j<COLS; j++){
+         flipHorizontal((int*)mat,i,j,ROWS);
+      }
+    }
+     printMat((int*)mat,ROWS,COLS);
+    break;
+    case 4:
+      for(int i=0; i<ROWS; i++){
+      for(int j=0 ; j<COLS/2; j++){
+         flipVertical((int*)mat,i,j,ROWS);
+      }
+    }
+     printMat((int*)mat,ROWS,COLS);
+    break;
   }
 }
+
