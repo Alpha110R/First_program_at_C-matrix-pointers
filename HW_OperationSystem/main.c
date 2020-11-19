@@ -3,8 +3,9 @@
 #include <time.h>
 #include <stdlib.h>
 #include "Q1PicManipulation.h"
+#include "Q2NumberGame.h"
 
-int main(void) {
+int main() {
   srand(time(0));
    char menu;
   char* menuPointer=&menu;
@@ -19,7 +20,8 @@ int main(void) {
     case 'p':
               Q1();
     break;
-    case 'N':printf("N");
+    case 'N':
+              Q2();
     break;
     case 'e':
     case 'E':
@@ -29,5 +31,6 @@ int main(void) {
   }
   }while(menu!='E' && menu!='e');
   printf("Thank you for the time");
+  printf("\nAlon Ronder");
   return 0;
 }
