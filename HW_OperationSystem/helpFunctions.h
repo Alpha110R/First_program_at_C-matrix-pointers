@@ -3,11 +3,12 @@
 
 void initMat(int* mat, int rows, int col);
 void printMat(const int* mat, int rows, int cols);
-int createRandomNumber(int max);
+int createRandomNumber(int max, int min);
 int menu();
 void rotateMatrixRight(int* mat, int indexRow, int indexCol,int sizeOfRow);
 void rotateMatrixLeft(int* mat, int indexRow, int indexCol,int sizeOfRow);
 void flipHorizontal(int* mat, int indexRow, int indexCol,int sizeOfRow);
 void flipVertical(int* mat, int indexRow, int indexCol,int sizeOfRow);
+
 
 #endif

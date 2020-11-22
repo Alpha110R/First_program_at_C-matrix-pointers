@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include "helpFunctions.h"
 
-int createRandomNumber(int max){
-  int num = rand()%max;
+int createRandomNumber(int max, int min){
+  int num =min + (rand()%(max-min+1));
   return num;
 }
 void initMat(int* mat, int rows, int cols){
   for(int i =0 ; i<rows*cols ; i++){
-    *mat=createRandomNumber(50);
+    *mat=createRandomNumber(50,0);
     mat++;
   }
 }

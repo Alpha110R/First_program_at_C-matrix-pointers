@@ -20,6 +20,7 @@ int main() {
     case 'p':
               Q1();
     break;
+    case 'n':
     case 'N':
               Q2();
     break;

@@ -5,6 +5,7 @@
 #include "Q1PicManipulation.h"
 #define ROWS 4
 #define COLS 4
+#define SHUFFEL_COUNT 15
 void Q1(){
   int mat[ROWS][COLS];
   initMat((int*)mat,ROWS,COLS);
@@ -45,4 +46,3 @@ void Q1(){
     break;
   }
 }
-
